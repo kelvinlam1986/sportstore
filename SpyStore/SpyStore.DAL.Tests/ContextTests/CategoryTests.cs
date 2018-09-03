@@ -77,6 +77,48 @@ namespace SpyStore.DAL.Tests.ContextTests
             Assert.Throws<InvalidOperationException>(() => _db.Update(category));
         }
 
+        [Fact]
+        public void ShouldDeleteCategory()
+        {
+            var category = new Category { CategoryName = "Foo" };
+            _db.Categories.Add(category);
+            _db.SaveChanges();
+            Assert.Equal(1, _db.Categories.Count());
+            _db.Categories.Remove(category);
+            Assert.Equal(EntityState.Deleted, _db.Entry(category).State);
+            _db.SaveChanges();
+            Assert.Equal(EntityState.Detached, _db.Entry(category).State);
+            Assert.Equal(0, _db.Categories.Count());
+        }
+
+        [Fact]
+        public void ShouldDeleteACategoryWithTimestampData()
+        {
+            var category = new Category { CategoryName = "Foo" };
+            _db.Categories.Add(category);
+            _db.SaveChanges();
+            var context = new StoreContext();
+            var catToDelete = new Category { Id = category.Id, Timestamp = category.Timestamp };
+            context.Entry(catToDelete).State = EntityState.Deleted;
+            var effected = context.SaveChanges();
+            Assert.Equal(1, effected);
+        }
+
+        [Fact]
+        public void ShouldNotDeleteACategoryWithoutTimestampData()
+        {
+            var category = new Category { CategoryName = "Foo" };
+            _db.Categories.Add(category);
+            _db.SaveChanges();
+            var context = new StoreContext();
+            var catToDelete = new Category { Id = category.Id };
+            context.Entry(catToDelete).State = EntityState.Deleted;
+            var ex = Assert.Throws<DbUpdateConcurrencyException>(() => context.SaveChanges());
+            Assert.Equal(1, ex.Entries.Count);
+            Assert.Equal(category.Id, ((Category)ex.Entries[0].Entity).Id);
+        }
+
+
         private void CleanDatabase()
         {
             _db.Database.ExecuteSqlCommand("Delete from Store.Categories");
