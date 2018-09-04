@@ -31,7 +31,29 @@ namespace SpyStore.DAL
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Customer>(entity =>
+            {
+                entity.HasIndex(e => e.EmailAddress).HasName("IX_Customers").IsUnique();
+            });
+
+            modelBuilder.Entity<Order>(entity =>
+            {
+                entity.Property(e => e.OrderDate)
+                    .HasColumnType("datetime")
+                    .HasDefaultValue("getdate()");
+                entity.Property(e => e.ShipDate)
+                     .HasColumnType("datetime")
+                     .HasDefaultValue("getdate()");
+            });
+
+            modelBuilder.Entity<OrderDetail>(entity =>
+            {
+                entity.Property(e => e.LineItemTotal)
+                    .HasColumnType("money")
+                    .HasComputedColumnSql("[Quantity]*[UnitCost]");
+                entity.Property(e => e.UnitCost).HasColumnType("money");
+            });
+
         }
     }
 }
