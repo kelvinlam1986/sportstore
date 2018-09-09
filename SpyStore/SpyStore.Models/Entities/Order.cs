@@ -21,6 +21,9 @@ namespace SpyStore.Models.Entities
         [Display(Name = "Date Shipped")]
         public DateTime ShipDate { get; set; }
 
+        [Display(Name = "Total")]
+        public decimal? OrderTotal { get; set; }
+
         [InverseProperty(nameof(OrderDetail.Order))]
         public List<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
     }
