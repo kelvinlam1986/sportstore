@@ -8,10 +8,6 @@ namespace SpyStore.Models.Entities
     [Table("Products", Schema = "Store")]
     public class Product : EntityBase
     {
-        protected Product()
-        {
-        }
-
         [MaxLength(3800)]
         public string Description { get; set; }
 
