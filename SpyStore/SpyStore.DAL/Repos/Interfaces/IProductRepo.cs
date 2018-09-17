@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SpyStore.DAL.Repos.Interfaces
 {
-    public interface IProducRepo : IRepo<Product>
+    public interface IProductRepo : IRepo<Product>
     {
         IEnumerable<ProductAndCategoryBase> Search(string searchString);
         IEnumerable<ProductAndCategoryBase> GetAllWithCategoryName();

@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace SpyStore.DAL.Repos
 {
-    public class ProductRepo : RepoBase<Product>, IProducRepo
+    public class ProductRepo : RepoBase<Product>, IProductRepo
     {
         public ProductRepo(DbContextOptions<StoreContext> options) : base(options)
         {

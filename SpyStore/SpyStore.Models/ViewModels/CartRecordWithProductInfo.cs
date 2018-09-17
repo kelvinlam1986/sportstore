@@ -7,7 +7,7 @@ namespace SpyStore.Models.ViewModels
     public class CartRecordWithProductInfo : ProductAndCategoryBase
     {
         [DataType(DataType.Date), Display(Name = "Date Created")]
-        public DateTime DateCreated { get; set; }
+        public DateTime? DateCreated { get; set; }
 
         public int? CustomerId { get; set; }
 
