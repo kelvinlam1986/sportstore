@@ -20,6 +20,6 @@ namespace SpyStore.Models.ViewModels
         [Display(Name = "Date Shipped")]
         public DateTime ShipDate { get; set; }
 
-        public IList<OrdeDetailWithProductInfo> OrderDetails { get; set; }
+        public IList<OrderDetailWithProductInfo> OrderDetails { get; set; }
     }
 }
