@@ -38,7 +38,7 @@ namespace SpyStore.DAL.Initializers
 			var tables = new[] { "Categories", "Customers", "OrderDetails", "Orders", "Products", "ShoppingCartRecords" };
 			foreach (var itm in tables)
 			{
-				var sql = $"DBCC CHECKIDENT (\"Store.{itm}\", RESEED, -1);";
+				var sql = $"DBCC CHECKIDENT (\"Store.{itm}\", RESEED, 1);";
 				context.Database.ExecuteSqlCommand(sql);
 
 			}

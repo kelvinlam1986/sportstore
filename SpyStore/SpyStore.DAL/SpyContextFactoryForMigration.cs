@@ -8,7 +8,7 @@ namespace SpyStore.DAL
 {
     public class SpyContextFactoryForMigration : IDesignTimeDbContextFactory<StoreContext>
     {
-        private const string ConnectionString = @"Server=DESKTOP-TIATFF2\SQLEXPRESS;Database=SpyStore;Trusted_Connection=True;MultipleActiveResultSets=true;";
+        private const string ConnectionString = @"Server=LSMINH;Database=SpyStore;Trusted_Connection=True;MultipleActiveResultSets=true;";
 
         public StoreContext CreateDbContext(string[] args)
         {
