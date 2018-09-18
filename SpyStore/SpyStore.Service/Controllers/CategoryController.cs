@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using SpyStore.DAL.Repos.Interfaces;
+using SpyStore.Models.ViewModels.Base;
 
 namespace SpyStore.Service.Controllers
 {
@@ -7,31 +9,37 @@ namespace SpyStore.Service.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
-		[HttpGet]
-		public IEnumerable<string> Get()
+		private ICategoryRepo Repo { get; set; }
+		private IProductRepo ProductRepo { get; set; }
+
+		public CategoryController(ICategoryRepo repo, IProductRepo productRepo)
 		{
-			return new string[] { "value1", "value2" };
+			Repo = repo;
+			ProductRepo = productRepo;
+		}
+
+		[HttpGet]
+		public IActionResult Get()
+		{
+			return Ok(Repo.GetAll());
 		}
 
 		[HttpGet("{id}")]
-		public string Get(int id)
+		public IActionResult Get(int id)
 		{
-			return "value";
+			var item = Repo.Find(id);
+			if (item == null)
+			{
+				return NotFound();
+			}
+
+			return Ok(item);
 		}
 
-		[HttpPost]
-		public void Post([FromBody] string value)
+		[HttpGet("{categoryId}/products")]
+		public IEnumerable<ProductAndCategoryBase> GetProductsForCategory(int categoryId)
 		{
-		}
-
-		[HttpPut("{id}")]
-		public void Put(int id, [FromBody]string value)
-		{
-		}
-
-		[HttpDelete("{id}")]
-		public void Delete(int id)
-		{
+			return ProductRepo.GetProductsForCategory(categoryId);
 		}
     }
 }
