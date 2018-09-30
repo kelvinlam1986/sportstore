@@ -9,7 +9,6 @@ using SpyStore.Models.ViewModels;
 namespace SpyStore.Service.Controllers
 {
 	[Route("api/[controller]/{cutomerId}")]
-    [ApiController]
     public class ShoppingCartController : ControllerBase
     {
 		private IShoppingCartRepo Repo { get; set; }

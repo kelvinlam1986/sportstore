@@ -4,7 +4,6 @@ using SpyStore.DAL.Repos.Interfaces;
 namespace SpyStore.Service.Controllers
 {
 	[Route("api/[controller]/{customerId}")]
-    [ApiController]
     public class OrdersController : ControllerBase
     {
 		private IOrderRepo Repo { get; set; }

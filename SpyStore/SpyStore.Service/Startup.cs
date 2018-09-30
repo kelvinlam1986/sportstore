@@ -71,12 +71,7 @@ namespace SpyStore.Service
 					StoreDataInitializer.InitializeData(serviceScope.ServiceProvider);
 				}
 			}
-			else
-			{
-				app.UseHsts();
-			}
 
-			app.UseHttpsRedirection();
 			app.UseCors("AllowAll");
 			app.UseMvc();
 		}

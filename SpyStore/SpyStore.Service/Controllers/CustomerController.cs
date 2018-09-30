@@ -6,7 +6,6 @@ using SpyStore.Models.Entities;
 namespace SpyStore.Service.Controllers
 {
 	[Route("api/[controller]")]
-    [ApiController]
     public class CustomerController : ControllerBase
     {
 		private ICustomerRepo Repo { get; set; }

@@ -6,7 +6,6 @@ using SpyStore.Models.ViewModels.Base;
 namespace SpyStore.Service.Controllers
 {
 	[Route("api/[controller]")]
-    [ApiController]
     public class CategoryController : ControllerBase
     {
 		private ICategoryRepo Repo { get; set; }
