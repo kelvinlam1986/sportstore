@@ -51,7 +51,7 @@ namespace SpyStore.MVC
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Product/Error");
             }
 
             app.UseStaticFiles();
