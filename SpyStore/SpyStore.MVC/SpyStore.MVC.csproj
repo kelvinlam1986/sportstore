@@ -19,4 +19,8 @@
     <ProjectReference Include="..\SpyStore.Models\SpyStore.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 </Project>

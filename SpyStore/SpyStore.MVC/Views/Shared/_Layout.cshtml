@@ -3,17 +3,19 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        body {
+            padding-bottom: 60px;
+        }
+    </style>
     <title>@ViewData["Title"] - SpyStore.MVC</title>
-
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
+    <environment names="Development">
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/spystore-bootstrap.css" asp-append-version="true" />
     </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+    <environment include="Staging,Production">
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/spystore-bootstrap.min.css" asp-append-version="true" />
     </environment>
 </head>
 <body>
@@ -26,31 +28,57 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">SpyStore.MVC</a>
+                <a asp-area="" asp-controller="Product" asp-action="Index" class="navbar-brand">SpyStore.MVC</a>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+            <div class="navbar-collapse collapse header-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown">CATEGORIES><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <vc:menu></vc:menu>
+                            @*@await Component.InvokeAsync(nameof(Menu))*@
+                        </ul>
+                    </li>
+                    @Html.Partial("LoginView")
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2018 - SpyStore.MVC</p>
-        </footer>
+    <div class="page container">
+        <div class="pane panel-default">
+            <nav class="panel-heading hidden-xs">
+                <div class="store-logo">
+                    <a asp-controller="Product" asp-action="Index">
+                        <img style="z-index: 2000" src="~/images/store-logo.png" alt="Spy Store" />
+                    </a>
+                </div>
+                <ul class="nav nav-pills hidden-sm">
+                    <vc:menu></vc:menu>
+                </ul>
+            </nav>
+            <div class="panel-body">
+                @RenderBody()
+            </div>
+        </div>
     </div>
+    
+    <footer>
+        <hr />
+        <div class="container">
+            <small class="text-muted">
+                &copy; 2018 - Spy Store Minh Lam
+                <email email-name="kelvinlam" email-domain="kelvincoder@gmail.com"></email>
+            </small>
+        </div>
+    </footer>
 
-    <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <environment names="Development">
+        <script src="~/lib/jquery/dist/jquery.js" asp-append-version="true"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js" asp-append-version="true"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
-    <environment exclude="Development">
+
+    <environment include="Staging,Production">
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
                 asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
                 asp-fallback-test="window.jQuery"

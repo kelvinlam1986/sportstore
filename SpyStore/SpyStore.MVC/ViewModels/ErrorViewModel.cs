@@ -1,6 +1,4 @@
-using System;
-
-namespace SpyStore.MVC.Models
+namespace SpyStore.MVC.ViewModels
 {
     public class ErrorViewModel
     {
