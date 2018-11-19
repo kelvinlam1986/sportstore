@@ -17,7 +17,7 @@ namespace SpyStore.MVC.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction(nameof(Featured));
         }
 
         public ActionResult Details(int id)

@@ -1,9 +1,9 @@
 ﻿@model IEnumerable<Category>
-<li><a asp-controller="Products" asp-action="Featured">Featured</a></li>
+<li><a asp-controller="Product" asp-action="Featured">Featured</a></li>
 @foreach (var item in Model)
 {
     <li>
-        <a asp-controller="Products" asp-action="ProductList" asp-route-id="@item.Id">
+        <a asp-controller="Product" asp-action="ProductList" asp-route-id="@item.Id">
             @item.CategoryName
         </a>
     </li>

@@ -7,10 +7,6 @@ namespace SpyStore.MVC.TagHelpers
         public string EmailName { get; set; }
         public string EmailDomain { get; set; }
 
-        protected EmailTagHelper()
-        {
-        }
-
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             output.TagName = "a";
