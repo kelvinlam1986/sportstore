@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="scripts\app.component.ts" />
+    <None Remove="scripts\app.module.ts" />
+    <None Remove="scripts\boot.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="scripts\app.component.ts" />
+    <TypeScriptCompile Include="scripts\app.module.ts" />
+    <TypeScriptCompile Include="scripts\boot.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\css\fonts\bootstrap\" />
+  </ItemGroup>
+
+</Project>

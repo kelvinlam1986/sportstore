@@ -1,0 +1,19 @@
+﻿{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noEmitOnError": true,
+    "noImplicitAny": false,
+    "outDir": "../wwwroot/js/app",
+    "removeComments": false,
+    "noStrictGenericChecks": true
+  },
+  "exclude": [
+    "../node_modules",
+    "../wwwroot"
+  ]
+}

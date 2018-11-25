@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Angular 2 Spy Store</title>
+    <link rel="stylesheet" href="/css/spystore-bootstrap.css" />
+    <!-- 1. Load libraries -->
+    <script src="lib/shim.min.js"></script>
+    <script src="lib/zone.js"></script>
+    <script src="lib/Reflect.js"></script>
+    <script src="lib/system.src.js"></script>
+    <!-- 2. Configure SystemJS -->
+    <script>
+        /**
+        * System configuration for Angular 2 samples
+        * Adjust as necessary for your application needs.
+        */
+        (function (global) {
+            System.config({
+                paths: {
+                    'npm': 'node_modules/'
+                },
+                map: {
+                    // our app is within the app folder
+                    app: '/js/app',
+                    // angular bundles
+                    '@angular/core': 'lib/core/bundles/core.umd.js',
+                    '@angular/common': 'lib/common/bundles/common.umd.js',
+                    '@angular/compiler': 'lib/compiler/bundles/compiler.umd.js',
+                    '@angular/platform-browser': 'lib/platform-browser/bundles/platform-browser.umd.js',
+                    '@angular/platform-browser-dynamic': 'lib/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
+                    '@angular/http': 'lib/http/bundles/http.umd.js',
+                    '@angular/router': 'lib/router/bundles/router.umd.js',
+                    '@angular/forms': 'lib/forms/bundles/forms.umd.js',
+                    // other libraries
+                    'rxjs': 'lib/rxjs',
+                    'ng2-bootstrap/dropdown': 'lib/ng2-bootstrap/dropdown/index.js',
+                    'ng2-bootstrap': 'lib/ng2-bootstrap'
+                },
+                packages: {
+                    js: {
+                        defaultExtension: 'js'
+                    },
+                    app: {
+                        //boot: './boot.js',
+                        defaultExtension: 'js'
+                    },
+                    rxjs: {
+                        defaultExtension: 'js'
+                    },
+                    'ng2-bootstrap': {
+                        defaultExtension: 'js'
+                    },
+                    'angular2-in-memory-web-api': {
+                        main: './index.js',
+                        defaultExtension: 'js'
+                    }
+                }
+            });
+        })(this);
+        System.import('js/app/boot').catch(function (err) { console.error(err); });
+    </script>
+    <base href="/" />
+</head>
+<body>
+    <spystore-app>Loading...</spystore-app>
+</body>
+</html>
