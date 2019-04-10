@@ -18,22 +18,22 @@
                     <ul class="dropdown-menu"></ul>
                 </li>
                 <li><a routerLink="/cart"><span class="glyphicon glyphicon-shopping-cart"></span> CART</a></li>
-                <li dropdown class="dropdown">
-                    <a href="#" class="dropdown-toggle" dropdownToggle><span class="glyphicon glyphicon-user"></span> ACCOUNT <span class="caret"></span></a>
-                    <ul dropdownMenu class="dropdown-menu account-dropdown-menu">
+                <li dropdown class="dropdown" #dropdown="bs-dropdown">
+                    <a href="javascript:void(0)" class="dropdown-toggle" dropdownToggle><span class="glyphicon glyphicon-user"></span> ACCOUNT <span class="caret"></span></a>
+                    <ul *dropdownMenu class="dropdown-menu account-dropdown-menu">
                         <li class="dropdown-header">Welcome, {{user?.FullName}}</li>
                         <li><a routerLink="/orderHistory">ORDER HISTORY</a></li>
                         <li><a (click)="logout()">LOGOFF</a></li>
                     </ul>
                 </li>
-                <li dropdown class="dropdown">
-                    <a href="#" dropdownToggle class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-search"></span> SEARCH</a>
-                    <div dropdownMenu class="dropdown-menu search-dropdown-menu">
+                <li dropdown class="dropdown" #dropdown="bs-dropdown" [autoClose]="false">
+                    <a href="javascript:void(0)"  dropdownToggle class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-search"></span> SEARCH</a>
+                    <div *dropdownMenu class="dropdown-menu search-dropdown-menu">
                         <div class="input-group">
                             <label class="sr-only" for="searchString">Search</label>
-                            <input type="text" id="searchString" name="searchString" class="form-control" placeholder="SEARCH">
+                            <input type="text" id="searchString" name="searchString" class="form-control" placeholder="SEARCH" [(ngModel)]="searchText">
                             <span class="input-group-btn">
-                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                                <button class="btn btn-default" type="button" (click)="search()"><span class="glyphicon glyphicon-search"></span></button>
                             </span>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
             <ul class="nav nav-pills hidden-sm"></ul>
         </nav>
         <div class="panel-body">
-            -- App Pages Go Here --
+            <router-outlet></router-outlet>
         </div>
     </div>
 </div>

@@ -7,8 +7,13 @@
 
   <ItemGroup>
     <None Remove="scripts\app.component.ts" />
+    <None Remove="scripts\app.config.ts" />
     <None Remove="scripts\app.module.ts" />
+    <None Remove="scripts\app.routing.ts" />
     <None Remove="scripts\boot.ts" />
+    <None Remove="scripts\components\products.component.ts" />
+    <None Remove="scripts\logging.service.ts" />
+    <None Remove="scripts\product.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,12 +22,18 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="scripts\app.component.ts" />
+    <TypeScriptCompile Include="scripts\app.config.ts" />
     <TypeScriptCompile Include="scripts\app.module.ts" />
+    <TypeScriptCompile Include="scripts\app.routing.ts" />
     <TypeScriptCompile Include="scripts\boot.ts" />
+    <TypeScriptCompile Include="scripts\components\products.component.ts" />
+    <TypeScriptCompile Include="scripts\logging.service.ts" />
+    <TypeScriptCompile Include="scripts\product.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="wwwroot\css\fonts\bootstrap\" />
+    <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
 </Project>

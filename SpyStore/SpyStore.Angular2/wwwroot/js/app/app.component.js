@@ -10,8 +10,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
+const router_1 = require("@angular/router");
 let AppComponent = class AppComponent {
-    constructor() {
+    constructor(_router) {
+        this._router = _router;
+    }
+    ngOnInit() {
+    }
+    search() {
+        let navigationExtras = {
+            queryParams: { 'searchText': this.searchText }
+        };
+        this._router.navigate(['/products'], navigationExtras);
     }
 };
 AppComponent = __decorate([
@@ -19,7 +29,7 @@ AppComponent = __decorate([
         selector: "spystore-app",
         templateUrl: "/app/app.html"
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [router_1.Router])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map
