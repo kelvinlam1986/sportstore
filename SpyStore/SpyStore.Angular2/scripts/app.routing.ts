@@ -1,6 +1,7 @@
 ﻿import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProductsComponent } from './components/products.component';
+import { ProductDetailComponent } from './components/product.component';
 
 const routes: Routes = [
     {
@@ -9,7 +10,8 @@ const routes: Routes = [
         pathMatch: 'full'
     },
     { path: 'products', component: ProductsComponent },
-    { path: 'products/:categoryId', component: ProductsComponent }
+    { path: 'products/:categoryId', component: ProductsComponent },
+    { path: 'product/:id', component: ProductDetailComponent }
 ];
 
 @NgModule({
@@ -18,4 +20,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 
-export const routedComponents = [ProductsComponent];
+export const routedComponents = [ProductsComponent, ProductDetailComponent];

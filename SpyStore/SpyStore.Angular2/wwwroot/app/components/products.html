@@ -17,7 +17,7 @@
                 {{product.ModelNumber}}
             </div>
             <a class="category" [routerLink]="['/products', product.CategoryId]">{{product.CategoryName}}</a>
-            <a class="btn btn-primary btn-cart" [routerLink]="['/products', product.Id]">
+            <a class="btn btn-primary btn-cart" [routerLink]="['/product', product.Id]">
                 <span class="glyphicon glyphicon-shopping-cart"></span>
                 Add To Cart
             </a>

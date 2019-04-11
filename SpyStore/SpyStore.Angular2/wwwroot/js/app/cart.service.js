@@ -16,37 +16,27 @@ const core_1 = require("@angular/core");
 const http_1 = require("@angular/http");
 require("rxjs/Rx");
 require("rxjs/add/operator/map");
+const user_service_1 = require("./user.service");
 const app_config_1 = require("./app.config");
-let ProductService = class ProductService {
-    constructor(http, config) {
+class Cart {
+}
+exports.Cart = Cart;
+let CartService = class CartService {
+    constructor(http, _userService, config) {
         this.http = http;
+        this._userService = _userService;
         this.config = config;
     }
-    getFeaturedProducts() {
-        return this.http.get(this.config.apiEndPoint + "product/featured")
-            .map(response => response.json());
-    }
-    getCategory(id) {
-        return this.http.get(this.config.apiEndPoint + "category/" + id)
-            .map(response => response.json());
-    }
-    getProductsForACategory(id) {
-        return this.http.get(this.config.apiEndPoint + "category/" + id + "/products")
-            .map(response => response.json());
-    }
-    searchProduct(searchText) {
-        return this.http.get(this.config.apiEndPoint + "search/" + searchText)
-            .map(response => response.json());
-    }
-    getProduct(id) {
-        return this.http.get(this.config.apiEndPoint + "product/" + id)
-            .map(response => response.json());
+    addToCart(cartRecord) {
+        var headers = new http_1.Headers();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post(this.config.apiEndPoint + "shoppingcart/" + this._userService.User.Id, JSON.stringify(cartRecord), { headers: headers });
     }
 };
-ProductService = __decorate([
+CartService = __decorate([
     core_1.Injectable(),
-    __param(1, core_1.Inject(app_config_1.APP_CONFIG)),
-    __metadata("design:paramtypes", [http_1.Http, Object])
-], ProductService);
-exports.ProductService = ProductService;
-//# sourceMappingURL=product.service.js.map
+    __param(2, core_1.Inject(app_config_1.APP_CONFIG)),
+    __metadata("design:paramtypes", [http_1.Http, user_service_1.UserService, Object])
+], CartService);
+exports.CartService = CartService;
+//# sourceMappingURL=cart.service.js.map

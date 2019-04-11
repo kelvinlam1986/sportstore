@@ -16,6 +16,8 @@ const app_routing_1 = require("./app.routing");
 const app_config_1 = require("./app.config");
 const product_service_1 = require("./product.service");
 const logging_service_1 = require("./logging.service");
+const cart_service_1 = require("./cart.service");
+const user_service_1 = require("./user.service");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -33,6 +35,8 @@ AppModule = __decorate([
             app_routing_1.routedComponents
         ],
         providers: [
+            cart_service_1.CartService,
+            user_service_1.UserService,
             logging_service_1.LoggingService,
             product_service_1.ProductService,
             { provide: app_config_1.APP_CONFIG, useValue: app_config_1.SPYSTORE_CONFIG }

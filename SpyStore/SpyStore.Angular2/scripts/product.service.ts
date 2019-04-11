@@ -29,4 +29,9 @@ export class ProductService {
         return this.http.get(this.config.apiEndPoint + "search/" + searchText)
             .map(response => response.json());
     }
+
+    getProduct(id: number | string): Observable<any> {
+        return this.http.get(this.config.apiEndPoint + "product/" + id)
+            .map(response => response.json());
+    }
 }

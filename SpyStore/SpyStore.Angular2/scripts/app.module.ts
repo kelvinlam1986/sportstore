@@ -8,6 +8,8 @@ import { AppRoutingModule, routedComponents } from './app.routing';
 import { APP_CONFIG, SPYSTORE_CONFIG } from './app.config';
 import { ProductService } from './product.service';
 import { LoggingService } from './logging.service';
+import { CartService } from './cart.service';
+import { UserService } from './user.service';
 
 @NgModule({
     imports: [
@@ -23,6 +25,8 @@ import { LoggingService } from './logging.service';
         routedComponents
     ],
     providers: [
+        CartService,
+        UserService,
         LoggingService,
         ProductService,
         { provide: APP_CONFIG, useValue: SPYSTORE_CONFIG }

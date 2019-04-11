@@ -11,9 +11,12 @@
     <None Remove="scripts\app.module.ts" />
     <None Remove="scripts\app.routing.ts" />
     <None Remove="scripts\boot.ts" />
+    <None Remove="scripts\cart.service.ts" />
+    <None Remove="scripts\components\product.component.ts" />
     <None Remove="scripts\components\products.component.ts" />
     <None Remove="scripts\logging.service.ts" />
     <None Remove="scripts\product.service.ts" />
+    <None Remove="scripts\user.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,9 +29,12 @@
     <TypeScriptCompile Include="scripts\app.module.ts" />
     <TypeScriptCompile Include="scripts\app.routing.ts" />
     <TypeScriptCompile Include="scripts\boot.ts" />
+    <TypeScriptCompile Include="scripts\cart.service.ts" />
+    <TypeScriptCompile Include="scripts\components\product.component.ts" />
     <TypeScriptCompile Include="scripts\components\products.component.ts" />
     <TypeScriptCompile Include="scripts\logging.service.ts" />
     <TypeScriptCompile Include="scripts\product.service.ts" />
+    <TypeScriptCompile Include="scripts\user.service.ts" />
   </ItemGroup>
 
   <ItemGroup>

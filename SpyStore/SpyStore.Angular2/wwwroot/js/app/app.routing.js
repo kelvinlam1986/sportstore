@@ -9,6 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
 const router_1 = require("@angular/router");
 const products_component_1 = require("./components/products.component");
+const product_component_1 = require("./components/product.component");
 const routes = [
     {
         path: '',
@@ -16,7 +17,8 @@ const routes = [
         pathMatch: 'full'
     },
     { path: 'products', component: products_component_1.ProductsComponent },
-    { path: 'products/:categoryId', component: products_component_1.ProductsComponent }
+    { path: 'products/:categoryId', component: products_component_1.ProductsComponent },
+    { path: 'product/:id', component: product_component_1.ProductDetailComponent }
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -27,5 +29,5 @@ AppRoutingModule = __decorate([
     })
 ], AppRoutingModule);
 exports.AppRoutingModule = AppRoutingModule;
-exports.routedComponents = [products_component_1.ProductsComponent];
+exports.routedComponents = [products_component_1.ProductsComponent, product_component_1.ProductDetailComponent];
 //# sourceMappingURL=app.routing.js.map
